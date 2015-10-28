@@ -1,0 +1,25 @@
+{
+  "name": "help-popup",
+  "version": "0.0.1",
+  "homepage": "https://github.com/DanielReid/help-popup",
+  "authors": [
+    "Connor Stroomberg <c.stroomberg@gmail.com>",
+    "Daan Reid <osmosisch@gmail.com>"
+  ],
+  "description": "A small angular directive to create an element that shows help from a supplied dictionary when clicked",
+  "main": "/app/js/main.js",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "bower_components",
+    "app/bower_components"
+  ],
+  "dependencies": {
+    "angular-foundation": "~0.6.0"
+  }
+}
