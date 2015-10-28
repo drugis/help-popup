@@ -1,10 +1,10 @@
 angular.module('help-directive', ['mm.foundation'])
 
-.directive('inline-help', [function(){
+.directive('inlineHelp', [function(){
   return {
     restrict: 'AE',
     replace:false,
-    template: '<i popover="{{helpText}}" class="fa fa-question-circle"></i>',
+    template: '<a popover="{{helpText}}" ><i class="fa  fa-question-circle"></i></a>',
     scope: {
       helpKey: '@'
     }, link: function(scope) {
