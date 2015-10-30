@@ -21,6 +21,7 @@
   ],
   "dependencies": {
     "angular-foundation": "~0.6.0",
-    "font-awesome": "~4.0.3"
+    "font-awesome": "~4.0.3",
+    "angular-animate": "~1.4.7"
   }
 }
