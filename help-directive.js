@@ -1,14 +1,15 @@
-angular.module('help-directive', ['mm.foundation', ])
+angular.module('help-directive', ['mm.foundation'])
 
 .factory('HelpPopupService', [function() {
   var lexicon = {};
 
-  function getHelpItem(key){
+  function getHelpItem(key) {
     return lexicon[key];
   }
-  function loadLexicon(newLexicon){
-    for(propertyName in newLexicon) {
-      if(newLexicon.hasOwnProperty(propertyName)) {
+
+  function loadLexicon(newLexicon) {
+    for (propertyName in newLexicon) {
+      if (newLexicon.hasOwnProperty(propertyName)) {
         lexicon[propertyName] = newLexicon[propertyName];
       }
     }
@@ -29,11 +30,16 @@ angular.module('help-directive', ['mm.foundation', ])
     scope: {
       helpKey: '@'
     },
-    link: function(scope) {
+    link: function(scope, element) {
       var helpItem = HelpPopupService.getHelpItem(scope.helpKey);
-      scope.title = helpItem.title;
-      scope.helpText = helpItem.text;
-      scope.link = helpItem.link;
+      if (helpItem) {
+        scope.title = helpItem.title;
+        scope.helpText = helpItem.text;
+        scope.link = helpItem.link;
+      } else {
+        element.hide();
+      }
+
     }
   }
 }])
