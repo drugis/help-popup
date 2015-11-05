@@ -1,21 +1,22 @@
 angular.module('help-directive', ['mm.foundation'])
 
 .factory('HelpPopupService', ['$q', function($q) {
-  var lexicon = {};
+  var lexicons = {};
   var promises = [];
 
   function getHelpItem(key) {
     return $q.all(promises).then(function() {
-      return lexicon[key];
+      return lexicons[key];
     });
   }
 
   function loadLexicon(newLexicon) {
     promises.push(newLexicon);
-    newLexicon.then(function(data) {
-      for (propertyName in data) {
-        if (data.hasOwnProperty(propertyName)) {
-          lexicon[propertyName] = data[propertyName];
+    newLexicon.then(function(getResult) {
+      var lexicon = getResult.data;
+      for (propertyName in lexicon) {
+        if (lexicon.hasOwnProperty(propertyName)) {
+          lexicons[propertyName] = lexicon[propertyName];
         }
       }
     });
