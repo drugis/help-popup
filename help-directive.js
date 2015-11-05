@@ -37,10 +37,12 @@ angular.module('help-directive', ['mm.foundation'])
       helpKey: '@'
     },
     link: function(scope) {
-      var helpItem = HelpPopupService.getHelpItem(scope.helpKey);
-      scope.title = helpItem.title;
-      scope.helpText = helpItem.text;
-      scope.link = helpItem.link;
+      HelpPopupService.getHelpItem(scope.helpKey).then(function(helpItem) {
+        scope.title = helpItem.title;
+        scope.helpText = helpItem.text;
+        scope.link = helpItem.link;
+      });
+
     }
   }
 }]);
