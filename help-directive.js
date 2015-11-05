@@ -1,24 +1,30 @@
 angular.module('help-directive', ['mm.foundation'])
 
-.factory('HelpPopupService', [function() {
+.factory('HelpPopupService', ['$q', function($q) {
   var lexicon = {};
+  var promises = [];
 
-  function getHelpItem(key){
-    return lexicon[key];
+  function getHelpItem(key) {
+    return $q.all(promises).then(function() {
+      return lexicon[key];
+    });
   }
-  function loadLexicon(newLexicon){
-    for(propertyName in newLexicon) {
-      if(newLexicon.hasOwnProperty(propertyName)) {
-        lexicon[propertyName] = newLexicon[propertyName];
+
+  function loadLexicon(newLexicon) {
+    promises.push(newLexicon);
+    newLexicon.then(function(data) {
+      for (propertyName in data) {
+        if (data.hasOwnProperty(propertyName)) {
+          lexicon[propertyName] = data[propertyName];
+        }
       }
-    }
+    });
   };
 
   return {
     getHelpItem: getHelpItem,
     loadLexicon: loadLexicon
   };
-
 }])
 
 .directive('inlineHelp', ['HelpPopupService', function(HelpPopupService) {
@@ -36,4 +42,4 @@ angular.module('help-directive', ['mm.foundation'])
       scope.link = helpItem.link;
     }
   }
-}])
+}]);
