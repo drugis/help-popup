@@ -20,7 +20,7 @@
     "app/bower_components"
   ],
   "dependencies": {
-    "angular-foundation": "https://github.com/drugis/angular-foundation.git#popoverExpanded",
+    "angular-foundation": "https://github.com/circlingthesun/angular-foundation-6/tree/v0.11.11",
     "font-awesome": "~4.2",
     "angular-animate": "~1.6.0"
   }
