@@ -35,12 +35,11 @@ angular.module('help-directive', ['mm.foundation'])
       return {
         restrict: 'AE',
         replace: false,
-        // template: '<a popover="{{helpText}}" popover-append-to-body="true" popover-animation="true" popover-title="{{title}}" popover-link="{{link}}"><i class="fa  fa-question-circle"></i></a>',
         template: '' +
           '<a class="has-tip"' +
-          ' tooltip-placement="bottom"' +
-          ' tooltip-trigger="click" ' +
+          ' tooltip-trigger="click"' +
           ' tooltip-append-to-body="true"' +
+          ' tooltip-animation="true"'+
           ' tooltip-html-unsafe="{{helpText}}">' +
           ' <i class="fa fa-question-circle"></i>' +
           '</a>',
@@ -49,8 +48,6 @@ angular.module('help-directive', ['mm.foundation'])
         },
         link: function(scope) {
           HelpPopupService.getHelpItem(scope.helpKey).then(function(helpItem) {
-            scope.title = helpItem.title;
-            scope.link = helpItem.link;
             scope.helpText = '' +
               '<h4>' + helpItem.title + '</h4>' +
               '<div>' + helpItem.text + '</div>' +
