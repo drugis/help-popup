@@ -50,9 +50,9 @@ angular.module('help-directive', ['mm.foundation'])
           HelpPopupService.getHelpItem(scope.helpKey).then(function(helpItem) {
             scope.helpText = '' +
               '<h4>' + helpItem.title + '</h4>' +
-              '<div>' + helpItem.text + '</div>' +
+              '<div class="tooltip-content">' + helpItem.text + '</div>' +
               '<br><div class="manual-link"><h6><a href="' + helpItem.link +
-              '  " target="_blank">View in manuel <i class="fa fa-external-link"></i></a></h6>' +
+              '  " target="_blank">View in manual <i class="fa fa-external-link"></i></a></h6>' +
               '</div>';
           });
         }
