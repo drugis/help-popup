@@ -1,6 +1,6 @@
 {
   "name": "help-popup",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "homepage": "https://github.com/DanielReid/help-popup",
   "authors": [
     "Connor Stroomberg <c.stroomberg@gmail.com>",
@@ -20,7 +20,7 @@
     "app/bower_components"
   ],
   "dependencies": {
-    "angular-foundation": "https://github.com/drugis/angular-foundation-6.git",
+    "angular-foundation": "https://github.com/drugis/angular-foundation-6.git#master",
     "font-awesome": "~4.2",
     "angular-animate": "~1.6.0"
   }
