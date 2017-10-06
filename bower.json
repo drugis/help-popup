@@ -8,7 +8,6 @@
     "Joris de Keijser <j.j.de.keijser@umcg.nl>"
   ],
   "description": "A small angular directive to create an element that shows help from a supplied dictionary when clicked",
-  "main": "/app/js/main.js",
   "moduleType": [
     "amd"
   ],
@@ -20,8 +19,8 @@
     "app/bower_components"
   ],
   "dependencies": {
-    "angular-foundation": "https://github.com/drugis/angular-foundation-6.git#master",
-    "font-awesome": "~4.2",
+    "angular-foundation-6": "https://github.com/drugis/angular-foundation-6.git#master",
+    "font-awesome": "~4.3",
     "angular-animate": "~1.6.0"
   }
 }
