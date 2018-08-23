@@ -1,6 +1,6 @@
 'use strict';
 /* globals angular */
-define(['angular', 'angular-foundation'], function() {
+define(['angular', 'angular-foundation-6'], function() {
   angular.module('help-directive', ['mm.foundation'])
 
     .factory('HelpPopupService', ['$q', function($q) {
