@@ -14,8 +14,9 @@ define(['angular', 'angular-foundation-6'], function() {
       }
 
       function loadLexicon(newLexicon) {
-        promises.push(newLexicon);
-        newLexicon.then(function(getResult) {
+        var toLoad = newLexicon.then ? newLexicon : $q.resolve(newLexicon);
+        promises.push(toLoad);
+        toLoad.then(function(getResult) {
           var lexicon = getResult.data;
           for (var propertyName in lexicon) {
             if (lexicon.hasOwnProperty(propertyName)) {
@@ -24,7 +25,7 @@ define(['angular', 'angular-foundation-6'], function() {
           }
         });
       }
-
+      
       return {
         getHelpItem: getHelpItem,
         loadLexicon: loadLexicon
