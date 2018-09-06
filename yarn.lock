@@ -6,7 +6,7 @@ angular-animate@~1.6.0:
   version "1.6.10"
   resolved "https://registry.yarnpkg.com/angular-animate/-/angular-animate-1.6.10.tgz#c520f6d341370e34e0a62060c99bcf47b7d7db8c"
 
-angular-foundation@drugis/angular-foundation-6#master:
+angular-foundation-6@drugis/angular-foundation-6#master:
   version "0.11.16"
   resolved "https://codeload.github.com/drugis/angular-foundation-6/tar.gz/6ddb6a90f17a7263020cea5ef3b9bc14be84a569"
 

@@ -1,6 +1,5 @@
 'use strict';
-/* globals angular */
-define(['angular', 'angular-foundation-6'], function() {
+define(['angular', 'angular-foundation-6'], function(angular) {
   angular.module('help-directive', ['mm.foundation'])
 
     .factory('HelpPopupService', ['$q', function($q) {
@@ -17,7 +16,7 @@ define(['angular', 'angular-foundation-6'], function() {
         var toLoad = newLexicon.then ? newLexicon : $q.resolve(newLexicon);
         promises.push(toLoad);
         toLoad.then(function(getResult) {
-          var lexicon = getResult.data;
+          var lexicon = getResult.data || getResult;
           for (var propertyName in lexicon) {
             if (lexicon.hasOwnProperty(propertyName)) {
               lexicons[propertyName] = lexicon[propertyName];
@@ -25,7 +24,7 @@ define(['angular', 'angular-foundation-6'], function() {
           }
         });
       }
-      
+
       return {
         getHelpItem: getHelpItem,
         loadLexicon: loadLexicon
