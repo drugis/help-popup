@@ -1,6 +1,6 @@
 {
   "name": "help-popup",
-  "version": "0.5.1",
+  "version": "1.0.0",
   "types": "build/index.d.ts",
   "module": "build/bundle.js",
   "files": [
