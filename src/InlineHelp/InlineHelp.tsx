@@ -38,7 +38,8 @@ export default function InlineHelp({
   const style: CSSProperties = {
     textDecoration: 'underline',
     textDecorationStyle: 'dashed',
-    cursor: 'help'
+    cursor: 'help',
+    alignItems: 'center'
   };
 
   return (
