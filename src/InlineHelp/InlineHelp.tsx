@@ -18,13 +18,13 @@ export default function InlineHelp({
   const [link, setLink] = useState<string>();
   const [anchorEl, setAnchorEl] = useState<HTMLButtonElement | null>(null);
 
-  const {getHelpInfo} = useContext(HelpContext);
+  const {getHelpInfo, baseUrl} = useContext(HelpContext);
 
   useEffect(() => {
     const {title, text, link} = getHelpInfo(helpId);
     setTitle(title);
     setText(text);
-    setLink(link);
+    setLink(baseUrl + link);
   });
 
   function openPopover(event: MouseEvent<HTMLButtonElement>) {

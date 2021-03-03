@@ -5,9 +5,13 @@ import IHelpInfo from '../Interfaces/IHelpInfo';
 export const HelpContext = createContext<IHelpContext>({} as IHelpContext);
 
 export function HelpContextProviderComponent({
+  host,
+  path,
   lexicon,
   children
 }: {
+  host: string;
+  path: string;
   lexicon: Record<string, IHelpInfo>;
   children: any;
 }) {
@@ -20,7 +24,7 @@ export function HelpContextProviderComponent({
   }
 
   return (
-    <HelpContext.Provider value={{getHelpInfo}}>
+    <HelpContext.Provider value={{getHelpInfo, baseUrl: host + path}}>
       {children}
     </HelpContext.Provider>
   );
