@@ -8,9 +8,11 @@ import {HelpContext} from '../HelpContext/HelpContext';
 
 export default function InlineHelp({
   helpId,
+  omitQuestionMark,
   children
 }: {
   helpId: string;
+  omitQuestionMark?: boolean;
   children: any;
 }) {
   const [title, setTitle] = useState<string>();
@@ -27,6 +29,15 @@ export default function InlineHelp({
     setLink(baseUrl + link);
   });
 
+  const style: CSSProperties = {
+    textDecoration: 'underline',
+    textDecorationStyle: 'dashed',
+    textDecorationThickness: '1px',
+    textDecorationColor: 'darkgray',
+    cursor: 'help',
+    alignItems: 'center'
+  };
+
   function openPopover(event: MouseEvent<HTMLButtonElement>) {
     setAnchorEl(event.currentTarget);
   }
@@ -35,18 +46,20 @@ export default function InlineHelp({
     setAnchorEl(null);
   }
 
-  const style: CSSProperties = {
-    textDecoration: 'underline',
-    textDecorationStyle: 'dashed',
-    cursor: 'help',
-    alignItems: 'center'
-  };
+  function renderQuestionMark(): JSX.Element {
+    if (omitQuestionMark) {
+      return <></>;
+    } else {
+      return <sup style={{color: 'darkgray'}}>?</sup>;
+    }
+  }
 
   return (
     <>
       <span onClick={openPopover} style={style}>
         {children}
       </span>
+      {renderQuestionMark()}
       <Popover
         open={!!anchorEl}
         onClose={closePopover}
