@@ -54,7 +54,9 @@ export default function InlineHelp({
     }
   }
 
-  return (
+  return link ? (
+    <span>{children}</span>
+  ) : (
     <>
       <span onClick={openPopover} style={style}>
         {children}
