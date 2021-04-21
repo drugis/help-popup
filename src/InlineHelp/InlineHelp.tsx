@@ -1,3 +1,4 @@
+import {Link} from '@material-ui/core';
 import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Popover from '@material-ui/core/Popover';
@@ -54,7 +55,7 @@ export default function InlineHelp({
     }
   }
 
-  return link ? (
+  return !link ? (
     <span>{children}</span>
   ) : (
     <>
@@ -77,12 +78,12 @@ export default function InlineHelp({
             <Typography variant="h5">{title}</Typography>
           </Grid>
           <Grid item xs={12}>
-            {text}
+            <Typography>{text}</Typography>
           </Grid>
           <Grid item xs={12}>
-            <a href={link} target="_blank">
-              View in manual
-            </a>
+            <Link href={link} target="_blank">
+              <Typography>View in manual</Typography>
+            </Link>
           </Grid>
         </Grid>
       </Popover>
