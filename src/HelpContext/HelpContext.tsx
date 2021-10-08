@@ -1,4 +1,4 @@
-import React, {createContext} from 'react';
+import React, { createContext } from 'react';
 import IHelpContext from '../Interfaces/IHelpContext';
 import IHelpInfo from '../Interfaces/IHelpInfo';
 
@@ -10,7 +10,7 @@ export function HelpContextProviderComponent({
   lexicon,
   children
 }: {
-  host: string;
+  host?: string;
   path: string;
   lexicon: Record<string, IHelpInfo>;
   children: any;
@@ -19,12 +19,16 @@ export function HelpContextProviderComponent({
     if (lexicon[id]) {
       return lexicon[id];
     } else {
-      return {title: 'unknown', link: 'unknown', text: 'unknown'};
+      return {
+        title: 'Missing help',
+        link: 'unknown',
+        text: `no help in lexicon for id ${id}`
+      };
     }
   }
 
   return (
-    <HelpContext.Provider value={{getHelpInfo, baseUrl: host + path}}>
+    <HelpContext.Provider value={{getHelpInfo, baseUrl: host? host + path: path}}>
       {children}
     </HelpContext.Provider>
   );
